@@ -1,4 +1,5 @@
 import random
+from typing import Counter
 
 colorlist = ["oranje","blauw","groen","bruin"]
 
@@ -6,16 +7,13 @@ colorlist = ["oranje","blauw","groen","bruin"]
 mnmamnt = input("Hoeveel M&M's wil je in je zak? ")
 
 def addToBag(count):
-    mnmzak = {}
+    mnmzak = []
 
     for i in range(int(count)):
         choice = random.choice(colorlist)
-        if choice in mnmzak:
-            mnmzak[choice] += 1
-        else:
-            mnmzak.update({choice : 1})
+        mnmzak.append(choice)
+
+
     return mnmzak
 
-print(addToBag(mnmamnt))
-
-
+print(sorted(addToBag(mnmamnt)))
